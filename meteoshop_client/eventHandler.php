@@ -31,7 +31,6 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
         $_SESSION['cantitate_zero'] = 'no';
         header("Location: index.php");
     } elseif($_REQUEST['action'] == 'comanda' && $cart->nrItems() > 0 && !empty($_SESSION['clientID'])) {
-        echo "pula";
         $insertComenzi = $db->query("INSERT INTO comenzi (id_client, pret_total, creat, modificat) VALUES ('"
           .$_SESSION['clientID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')");
         var_dump($insertComenzi);
